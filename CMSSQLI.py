@@ -54,7 +54,7 @@ def crack_password():
     for line in dict.readlines():
         line = line.replace("\n", "")
         beautify_print_try(line)
-        if hashlib.md5(str(salt.encode('utf-8')) + line.encode('utf-8')).hexdigest() == password.encode('utf-8'):
+        if hashlib.md5(str(salt) + line).hexdigest().encode('utf-8') == password:
             output += "\n[+] Password cracked: " + line
             break
     dict.close()
